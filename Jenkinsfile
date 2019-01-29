@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'ls -lhtra'
+                sh 'echo hello'
             }
         }
     }
