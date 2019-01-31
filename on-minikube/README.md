@@ -19,4 +19,6 @@ kubectl describe pods jenkins-XXXXX --namespace="jenkins-on-minikube" | grep IP
 
 # Add Kubernetes plugin to jenkins
 # Jenkins UI -> "Manage Jenkins" -> "Configure System" -> "Cloud" -> "Kubernetes"
+
+# Configure slave workers
 ```
