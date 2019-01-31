@@ -12,4 +12,11 @@ kubectl apply -f jenkins-service.yaml
 
 # Ping jenkins page for sanity check
 curl "`minikube ip`:32592"
+
+# Get jenkins master IP inside cluster
+kubectl get pods --namespace="jenkins-on-minikube" | grep jenkins
+kubectl describe pods jenkins-XXXXX --namespace="jenkins-on-minikube" | grep IP
+
+# Add Kubernetes plugin to jenkins
+# Jenkins UI -> "Manage Jenkins" -> "Configure System" -> "Cloud" -> "Kubernetes"
 ```
