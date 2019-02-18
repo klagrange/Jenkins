@@ -2,7 +2,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: master-pvc-persistent-volume-claim
-  namespace: jenkins-on-minikube-ingress
+  namespace: jenkins
 spec:
   accessModes:
     - ReadWriteOnce

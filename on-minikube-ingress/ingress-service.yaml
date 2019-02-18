@@ -2,7 +2,7 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: ingress-service
-  namespace: jenkins-on-minikube-ingress
+  namespace: jenkins
 spec:
   rules:
     - host: "on-minikube-ingress.local"
