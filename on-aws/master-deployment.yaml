@@ -1,0 +1,31 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: master-deployment
+  namespace: jenkins
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: jenkins
+    spec:
+      volumes:
+        - name: jenkins-master-storage
+          persistentVolumeClaim:
+            claimName: master-pvc-persistent-volume-claim
+      containers:
+        - name: jenkins
+          image: jenkins/jenkins:lts
+          ports:
+            - name: http-port
+              containerPort: 8080
+            - name: jnlp-port
+              containerPort: 50000
+          volumeMounts:
+            - name: jenkins-master-storage
+              mountPath: /var/jenkins_home
+      securityContext:
+        fsGroup: 1000
+        runAsUser: 1000
+        runAsNonRoot: true

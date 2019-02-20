@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: jenkins-ingress-alb
+  namespace: jenkins
+spec:
+  selector:
+    app: jenkins
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 8080
